@@ -1,4 +1,9 @@
 package com.example.performance.startup;
 
-public class TopologySort {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TopologySort<T> {
+    List<? extends AndroidStartUp<T>> lists = new ArrayList<>();
+
 }

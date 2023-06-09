@@ -1,4 +1,11 @@
 package com.example.performance.startup;
 
-public interface StartUp {
+import android.content.Context;
+
+import java.util.List;
+
+public interface StartUp<T> extends Dispather{
+    T create(Context context);
+    List<StartUp<?>> dependencies();
+    int getDependcies();
 }
