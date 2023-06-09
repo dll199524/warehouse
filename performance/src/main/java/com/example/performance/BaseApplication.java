@@ -29,6 +29,8 @@ public class BaseApplication extends Application {
                 .detectNetwork()
                 .penaltyLog()
                 .build());
+
+
     }
 
     @Override
