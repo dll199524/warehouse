@@ -1,4 +1,6 @@
 package com.example.performance.startup;
 
-public interface Result {
+public class Result<T> {
+    T data;
+    public Result(T data) {this.data = data;}
 }

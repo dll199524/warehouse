@@ -3,14 +3,27 @@ package com.example.performance;
 import android.app.Application;
 import android.content.Context;
 import android.os.Debug;
+import android.os.Environment;
 import android.os.StrictMode;
+import android.util.Log;
+
+import com.example.performance.startup.StartUpManager;
+import com.example.performance.startup.task.Task1;
+import com.example.performance.startup.task.Task2;
+import com.example.performance.startup.task.Task3;
+import com.example.performance.startup.task.Task4;
+import com.example.performance.startup.task.Task5;
+
+import java.io.File;
 
 
 public class BaseApplication extends Application {
 
+    private static String TAG = "BaseApplication";
+
     public BaseApplication() {
         //method trace生成trace文件
-        Debug.startMethodTracing();
+//        Debug.startMethodTracing();
     }
 
     @Override
@@ -29,8 +42,23 @@ public class BaseApplication extends Application {
                 .detectNetwork()
                 .penaltyLog()
                 .build());
+//        long preTime = System.currentTimeMillis();
+        new Task1().create(BaseApplication.this);
+        new Task2().create(BaseApplication.this);
+        new Task3().create(BaseApplication.this);
+        new Task4().create(BaseApplication.this);
+        new Task5().create(BaseApplication.this);
+//        long curTime = System.currentTimeMillis();
+//        Log.d(TAG, "consume time: " + (curTime - preTime));
 
-
+        new StartUpManager.Builder()
+                .addStartUp(new Task5())
+                .addStartUp(new Task4())
+                .addStartUp(new Task3())
+                .addStartUp(new Task2())
+                .addStartUp(new Task1())
+                .build(this)
+                .start().await();
     }
 
     @Override

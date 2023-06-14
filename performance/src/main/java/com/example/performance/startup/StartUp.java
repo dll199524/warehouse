@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface StartUp<T> extends Dispather{
     T create(Context context);
-    List<StartUp<?>> dependencies();
+    List<Class<? extends StartUp<?>>> dependencies();
     int getDependcies();
 }

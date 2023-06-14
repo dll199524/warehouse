@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        Debug.stopMethodTracing();
+//        Debug.stopMethodTracing();
         Log.d("TAG", "onWindowFocusChanged: " + MainActivity.class);
     }
 }

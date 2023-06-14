@@ -8,13 +8,21 @@ import android.util.Log;
 import com.example.performance.startup.AndroidStartUp;
 import com.example.performance.startup.StartUp;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Task1 extends AndroidStartUp<String> {
+
+public class Task3 extends AndroidStartUp<String> {
+
+    static List<Class<? extends StartUp<?>>> depends;
+    static {
+        depends = new ArrayList<>();
+        depends.add(Task1.class);
+    }
 
     @Override
     public List<Class<? extends StartUp<?>>> dependencies() {
-        return super.dependencies();
+        return depends;
     }
 
     @Override
@@ -31,8 +39,8 @@ public class Task1 extends AndroidStartUp<String> {
     public String create(Context context) {
         String t = Looper.myLooper() == Looper.getMainLooper() ?
                 "主线程" : "子线程";
-        Log.d("TAG", "create: task1 create");
-        SystemClock.sleep(3000);
-        return "Task1返回数据";
+        Log.d("TAG", "create: task3 create");
+        SystemClock.sleep(400);
+        return "Task3返回数据";
     }
 }

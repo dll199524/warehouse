@@ -11,8 +11,14 @@ public abstract class AndroidStartUp<T> implements StartUp<T> {
     CountDownLatch countDownLatch = new CountDownLatch(getDependcies());
 
     @Override
-    public List<StartUp<?>> dependencies() {
+    public List<Class<? extends StartUp<?>>> dependencies() {
         return null;
+    }
+
+    @Override
+    public int getDependcies() {
+        List<Class<? extends StartUp<?>>> dependencies = dependencies();
+        return dependencies == null ? 0 : dependencies.size();
     }
 
     @Override
