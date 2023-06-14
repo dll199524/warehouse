@@ -29,9 +29,9 @@ public class TopologySort {
                     List<Class<? extends StartUp>> children = startUpChildMap.get(parent);
                     if (children == null) {
                         children = new ArrayList<>();
-                        children.add(start.getClass());
+                        startUpChildMap.put(parent, children);
                     }
-                    startUpChildMap.put(parent, children);
+                    children.add(start.getClass());
                 }
             }
         }
@@ -52,13 +52,14 @@ public class TopologySort {
                 for (Class<? extends StartUp> childCls : childStartUp) {
                     int num = inDegree.get(childCls);
                     inDegree.put(childCls, num - 1);
-                    if (num == 0) zeroDegree.offer(childCls);
+                    if (num - 1 == 0) zeroDegree.offer(childCls);
                 }
             }
         }
 
-        result.addAll(main);
         result.addAll(threads);
+        result.addAll(main);
+
         return new StartUpCache(result, startUpMap, startUpChildMap);
 
     }

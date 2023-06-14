@@ -32,7 +32,7 @@ public class Task1 extends AndroidStartUp<String> {
         String t = Looper.myLooper() == Looper.getMainLooper() ?
                 "主线程" : "子线程";
         Log.d("TAG", "create: task1 create");
-        SystemClock.sleep(3000);
+        SystemClock.sleep(300);
         return "Task1返回数据";
     }
 }

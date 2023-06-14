@@ -4,6 +4,7 @@ package com.example.performance.startup;
 import android.content.Context;
 import android.os.Looper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -42,17 +43,19 @@ public class StartUpManager {
     }
 
     public void notifyChild(StartUp<?> startUp) {
-        if (startUp.callOnMainThread() && startUp.waitOnMainThread())
+        if (!startUp.callOnMainThread() && startUp.waitOnMainThread())
             countDownLatch.countDown();
-        List<Class<? extends StartUp>> childClazzs = startUpCache.getStartupChildMap().get(startUp);
-        for (Class<? extends StartUp> child : childClazzs) {
-            StartUp<?> childStartUp = startUpCache.getStartupMap().get(child);
-            childStartUp.toNotify();
+        if (startUpCache.getStartupChildMap().containsKey(startUp.getClass())) {
+            List<Class<? extends StartUp>> childClazzs = startUpCache.getStartupChildMap().get(startUp.getClass());
+            for (Class<? extends StartUp> child : childClazzs) {
+                StartUp<?> childStartUp = startUpCache.getStartupMap().get(child);
+                childStartUp.toNotify();
+            }
         }
     }
 
     public static class Builder {
-        List<StartUp<?>> startUpList;
+        List<StartUp<?>> startUpList = new ArrayList<>();
         public Builder addStartUp(StartUp<?> start) {
             startUpList.add(start);
             return this;

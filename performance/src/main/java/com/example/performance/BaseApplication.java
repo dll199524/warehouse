@@ -42,14 +42,15 @@ public class BaseApplication extends Application {
                 .detectNetwork()
                 .penaltyLog()
                 .build());
-//        long preTime = System.currentTimeMillis();
+
+        long preTime = System.currentTimeMillis();
         new Task1().create(BaseApplication.this);
         new Task2().create(BaseApplication.this);
         new Task3().create(BaseApplication.this);
         new Task4().create(BaseApplication.this);
         new Task5().create(BaseApplication.this);
-//        long curTime = System.currentTimeMillis();
-//        Log.d(TAG, "consume time: " + (curTime - preTime));
+        long curTime = System.currentTimeMillis();
+        Log.d(TAG, "onCreate: " + (curTime - preTime));
 
         new StartUpManager.Builder()
                 .addStartUp(new Task5())
@@ -59,6 +60,7 @@ public class BaseApplication extends Application {
                 .addStartUp(new Task1())
                 .build(this)
                 .start().await();
+        Log.d(TAG, "onCreate: " + (System.currentTimeMillis() - curTime));
     }
 
     @Override
