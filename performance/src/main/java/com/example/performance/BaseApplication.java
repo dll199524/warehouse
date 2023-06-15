@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Debug;
 import android.os.Environment;
+import android.os.MessageQueue;
 import android.os.StrictMode;
 import android.util.Log;
 
@@ -20,6 +21,7 @@ import java.io.File;
 public class BaseApplication extends Application {
 
     private static String TAG = "BaseApplication";
+    private MessageQueue.IdleHandler idleHandler;
 
     public BaseApplication() {
         //method trace生成trace文件
@@ -61,7 +63,17 @@ public class BaseApplication extends Application {
                 .build(this)
                 .start().await();
         Log.d(TAG, "onCreate: " + (System.currentTimeMillis() - curTime));
+
+        //延迟加载主线程空闲的时候调用
+        idleHandler = new MessageQueue.IdleHandler() {
+            @Override
+            public boolean queueIdle() {
+                return false;
+            }
+        };
     }
+
+
 
     @Override
     protected void attachBaseContext(Context base) {

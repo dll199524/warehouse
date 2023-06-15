@@ -2,7 +2,7 @@ package com.example.performance.startup;
 
 import java.util.concurrent.Executor;
 
-public interface Dispather {
+public interface Dispatcher {
 
     boolean callOnMainThread();
     boolean waitOnMainThread();
