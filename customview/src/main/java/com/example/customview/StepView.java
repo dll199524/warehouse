@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -16,8 +18,8 @@ public class StepView extends View {
     private int mOutColor = Color.BLUE;
     private int mInnerColor = Color.GREEN;
     private int mTextColor = Color.GRAY;
-    private int mBorderWidth = 1;
-    private int mStepTextSize = 5;
+    private int mBorderWidth = 20;
+    private int mStepTextSize = 30;
     private Paint mOutPaint, mInnerPaint, mTextPaint;
     private float currentStep = 1000;
     private float maxStep = 2000;
@@ -76,6 +78,21 @@ public class StepView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //绘制外圆弧
+        float width = mOutPaint.getStrokeWidth() / 2;
+        RectF rectF = new RectF(width, width, getMeasuredWidth() - width, getHeight() - width);
+        canvas.drawArc(rectF, 135, 270, false, mOutPaint);
+        //内圆弧
+        float innerAngle = currentStep / maxStep * 270;
+        canvas.drawArc(rectF, 135, innerAngle, false, mInnerPaint);
+        //绘制文字
+        String currentStepStr = currentStep + "";
+        Rect rect = new Rect();
+        mTextPaint.getTextBounds(currentStepStr, 0, currentStepStr.length(), rect);
+        float textStart = (getWidth() - rect.width()) / 2.0f;
+        Paint.FontMetricsInt fontMetricsInt = mTextPaint.getFontMetricsInt();
+        int baseLine = getHeight() / 2 - fontMetricsInt.bottom / 2 - fontMetricsInt.top / 2;
+        canvas.drawText(currentStepStr, textStart, baseLine, mTextPaint);
     }
 
     public void setMaxStep(float maxStep) {

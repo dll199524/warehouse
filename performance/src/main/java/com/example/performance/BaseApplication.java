@@ -4,10 +4,13 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Debug;
 import android.os.Environment;
+import android.os.Looper;
 import android.os.MessageQueue;
 import android.os.StrictMode;
 import android.util.Log;
 
+import com.example.performance.anr.LogPrinter;
+import com.example.performance.crash.ExceptionCrashHandler;
 import com.example.performance.startup.StartUpManager;
 import com.example.performance.startup.task.Task1;
 import com.example.performance.startup.task.Task2;
@@ -71,6 +74,11 @@ public class BaseApplication extends Application {
                 return false;
             }
         };
+
+        //anr，crash监控
+        ExceptionCrashHandler.getInstance().init(this);
+        LogPrinter logPrinter = new LogPrinter(this);
+        Looper.getMainLooper().setMessageLogging(logPrinter);
     }
 
 
@@ -79,4 +87,6 @@ public class BaseApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
     }
+
+
 }
