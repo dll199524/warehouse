@@ -1,5 +1,7 @@
-plugins {
-    id 'com.android.application'
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
 }
 
 android {
