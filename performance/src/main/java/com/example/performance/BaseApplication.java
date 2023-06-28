@@ -19,6 +19,7 @@ import com.example.performance.startup.task.Task4;
 import com.example.performance.startup.task.Task5;
 
 import java.io.File;
+import java.io.IOException;
 
 
 public class BaseApplication extends Application {
@@ -68,17 +69,18 @@ public class BaseApplication extends Application {
         Log.d(TAG, "onCreate: " + (System.currentTimeMillis() - curTime));
 
         //延迟加载主线程空闲的时候调用
-        idleHandler = new MessageQueue.IdleHandler() {
-            @Override
-            public boolean queueIdle() {
-                return false;
-            }
-        };
-
+//        idleHandler = new MessageQueue.IdleHandler() {
+//            @Override
+//            public boolean queueIdle() {
+//                return false;
+//            }
+//        };
+//
         //anr，crash监控
         ExceptionCrashHandler.getInstance().init(this);
         LogPrinter logPrinter = new LogPrinter(this);
         Looper.getMainLooper().setMessageLogging(logPrinter);
+
     }
 
 

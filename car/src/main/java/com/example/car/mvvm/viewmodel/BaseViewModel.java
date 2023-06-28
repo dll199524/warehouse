@@ -9,13 +9,9 @@ public class BaseViewModel <M extends BaseRepository> extends ViewModel {
 
     private static final String TAG = "BaseViewModel";
     protected M repository;
-    public BaseViewModel(M repository) {
-        this.repository = repository;
-    }
+    public BaseViewModel(M repository) {this.repository = repository;}
 
-    public M getRepository() {
-        return repository;
-    }
+    public M getRepository() {return repository;}
 
     @Override
     protected void onCleared() {
