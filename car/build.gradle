@@ -36,6 +36,11 @@ android {
 
 dependencies {
 
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     app_dependences.each {k,v -> implementation v}
+
+    //lottie
+    def lottieVersion = "5.2.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 }

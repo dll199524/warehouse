@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.car.mvvm.viewmodel.BaseViewModel;
 
@@ -37,7 +38,16 @@ public abstract class BaseMvvmFragment <V extends ViewDataBinding, Vm extends Vi
         if (type instanceof ParameterizedType)
             modelClass = (Class<Vm>) ((ParameterizedType) type).getActualTypeArguments()[1];
         else modelClass = (Class<Vm>) BaseViewModel.class;
-
+        Object  object = getViewModelOrFactory();
+        if (object instanceof ViewModel){
+            mViewModel = (Vm) object;
+        }else if (object instanceof ViewModelProvider.Factory){
+            mViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) object)
+                    .get(modelClass);
+        }else {
+            mViewModel = new ViewModelProvider(this,
+                    new ViewModelProvider.NewInstanceFactory()).get(modelClass);
+        }
     }
 
     @Override
