@@ -40,7 +40,7 @@ public class Task2 extends AndroidStartUp<String> {
         String t = Looper.myLooper() == Looper.getMainLooper() ?
                 "主线程" : "子线程";
         Log.d("TAG", "create: task2 create");
-        SystemClock.sleep(300);
+        SystemClock.sleep(200);
         return "Task2返回数据";
     }
 }

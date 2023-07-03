@@ -41,7 +41,7 @@ public abstract class BaseMvvmActivity <V extends ViewDataBinding, Vm extends Vi
         } else {
             modelClass = (Class<Vm>) BaseViewModel.class;
         }
-        Object  object = getViewModelOrFactory();
+        Object object = getViewModelOrFactory();
         if (object instanceof BaseViewModel){
             mViewModel = (Vm) object;
         }else if (object instanceof ViewModelProvider.Factory){

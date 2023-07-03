@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Warehouse">
         <activity
-            android:name=".HvacActivity"
+            android:name=".Hvac.HvacActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

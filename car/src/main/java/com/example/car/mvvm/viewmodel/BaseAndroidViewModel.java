@@ -19,9 +19,7 @@ public class BaseAndroidViewModel <M extends BaseRepository> extends AndroidView
     }
 
 
-    public M getRepository() {
-        return repository;
-    }
+    public M getRepository() {return repository;}
 
     @Override
     protected void onCleared() {

@@ -26,5 +26,12 @@ public class MainActivity extends AppCompatActivity {
         valueAnimator.setDuration(5000);
         valueAnimator.start();
 
+        ValueAnimator valueAnimator1 = ValueAnimator.ofFloat(0, 1);
+        valueAnimator1.addUpdateListener(animation -> {
+            float progress = (float) animation.getAnimatedValue();
+            binding.colorTrack.setProgress(progress);
+        });
+        valueAnimator1.setDuration(2000);
+        valueAnimator1.start();
     }
 }

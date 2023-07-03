@@ -1,4 +1,4 @@
-package com.example.customview;
+package com.example.customview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +12,8 @@ import android.util.TypedValue;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.example.customview.R;
 
 public class StepView extends View {
 

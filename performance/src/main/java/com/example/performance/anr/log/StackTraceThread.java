@@ -1,4 +1,4 @@
-package com.example.performance.anr;
+package com.example.performance.anr.log;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

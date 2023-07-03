@@ -1,4 +1,4 @@
-package com.example.performance.anr;
+package com.example.performance.anr.log;
 
 public class StackTraceInfo {
     long mTime;

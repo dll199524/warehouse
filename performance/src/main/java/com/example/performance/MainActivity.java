@@ -22,4 +22,12 @@ public class MainActivity extends AppCompatActivity {
 //        Debug.stopMethodTracing();
         Log.d("TAG", "onWindowFocusChanged: " + MainActivity.class);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+
 }

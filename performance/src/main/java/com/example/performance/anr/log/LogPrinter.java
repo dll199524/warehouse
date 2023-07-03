@@ -1,4 +1,4 @@
-package com.example.performance.anr;
+package com.example.performance.anr.log;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.util.Printer;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-
+//https://github.com/fengcunhan/BlockCanary
 public class LogPrinter implements Printer {
 
     public static final String BLOCK_EVENT = "com.example.performance.logBroadcast";

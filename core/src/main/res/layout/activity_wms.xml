@@ -4,16 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/hvac_btn"
-        android:text="hvac"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".framework.WmsActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

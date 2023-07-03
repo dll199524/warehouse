@@ -2,14 +2,12 @@ package com.example.performance;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.Debug;
-import android.os.Environment;
 import android.os.Looper;
 import android.os.MessageQueue;
 import android.os.StrictMode;
 import android.util.Log;
 
-import com.example.performance.anr.LogPrinter;
+import com.example.performance.anr.log.LogPrinter;
 import com.example.performance.crash.ExceptionCrashHandler;
 import com.example.performance.startup.StartUpManager;
 import com.example.performance.startup.task.Task1;
@@ -17,9 +15,6 @@ import com.example.performance.startup.task.Task2;
 import com.example.performance.startup.task.Task3;
 import com.example.performance.startup.task.Task4;
 import com.example.performance.startup.task.Task5;
-
-import java.io.File;
-import java.io.IOException;
 
 
 public class BaseApplication extends Application {
