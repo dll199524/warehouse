@@ -13,4 +13,8 @@
         <attr name="changeColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="DraggableFlagView">
+        <attr name="radiusColor" format="color"/>
+    </declare-styleable>
+
 </resources>
