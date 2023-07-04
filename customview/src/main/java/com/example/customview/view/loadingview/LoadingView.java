@@ -6,10 +6,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AnimationSet;
-import android.view.animation.BounceInterpolator;
+import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
 
@@ -105,4 +103,17 @@ public class LoadingView extends LinearLayout {
         rotateAnimation.start();
     }
 
+    @Override
+    public void setVisibility(int visibility) {
+        super.setVisibility(INVISIBLE);
+        mShapeView.clearAnimation();
+        shadowView.clearAnimation();
+        ViewGroup parent = (ViewGroup) getParent();
+        if (parent != null) {
+            parent.removeView(this);
+            parent.removeAllViews();
+        }
+        mShapeView = null;
+        shadowView = null;
+    }
 }
