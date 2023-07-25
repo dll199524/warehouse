@@ -1,15 +1,14 @@
 package com.example.customview;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+
 
 import com.example.customview.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ActivityMainBinding binding;
     @Override
@@ -33,5 +32,13 @@ public class MainActivity extends AppCompatActivity {
         });
         valueAnimator1.setDuration(2000);
         valueAnimator1.start();
+
+        binding.button.setOnClickListener(v -> {
+            Intent in = new Intent();
+            in.setClass(this, SecondActivity.class);
+            startActivity(in);
+        });
     }
+
+
 }

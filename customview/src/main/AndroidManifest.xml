@@ -9,6 +9,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Warehouse">
         <activity
+            android:name=".ThirdActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.colortrack.ColorTrackActivity"
             android:exported="false">
             <meta-data
@@ -16,6 +30,7 @@
                 android:value="" />
         </activity>
         <activity
+            android:launchMode="singleInstance"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

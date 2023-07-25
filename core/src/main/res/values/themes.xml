@@ -13,4 +13,11 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="NoActionBar">
+        <item name="android:windowBackground">#00000000</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>

@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.car.mvvm.utils.AppExecutors;
 import com.example.car.mvvm.viewmodel.BaseViewModel;
-import com.fwk.sdk.hvac.HvacManager;
+
 
 public class HvacViewModel extends BaseViewModel<HvacRepository> {
 

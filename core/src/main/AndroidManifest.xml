@@ -9,7 +9,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Warehouse">
         <activity
-            android:name=".WmsActivity"
+            android:name=".BreakPointActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SystemUiActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".framework.WmsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
