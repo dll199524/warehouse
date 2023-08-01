@@ -26,7 +26,7 @@
 * #####################################################
 */
 
-
+https://juejin.cn/post/6844903656614002696
 1、悬浮窗自定义一个FrameLayout布局FloatLayout，里面进行拖动及点击响应处理
 2、FloatMonkService，是一个服务，开启服务的时候创建悬浮窗 
 3、FloatCallBack，交互接口，在FloatMonkService里面实现接口，用于交互
