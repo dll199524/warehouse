@@ -9,21 +9,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Warehouse">
         <activity
-            android:name=".BreakPointActivity"
+            android:name=".network.breakpoint.BreakPointActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SystemUiActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".framework.WmsActivity"
+            android:name=".framework.SystemUiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -31,6 +24,13 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".framework.WmsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +42,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <service android:name=".framework.SnowWallPaper"
+            android:label="雪花飞舞"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/snow" />
+
+        </service>
     </application>
 
 </manifest>

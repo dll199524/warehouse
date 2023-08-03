@@ -17,9 +17,9 @@ public class SecondActivity extends BaseActivity {
         binding = ActivitySecondBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.button1.setOnClickListener(v -> {
-            startActivity(new Intent(this, ThirdActivity.class));
-        });
+//        binding.button1.setOnClickListener(v -> {
+//            startActivity(new Intent(this, ThirdActivity.class));
+//        });
 
     }
 }

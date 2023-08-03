@@ -7,7 +7,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Warehouse">
+        android:theme="@style/Theme.AppCompat">
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -23,7 +23,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SecondActivity"
+            android:name=".view.photoview.PhotoActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -37,7 +37,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.photoview.PhotoActivity"
+            android:name=".SecondActivity"
             android:exported="true"
             android:launchMode="singleInstance">
             <intent-filter>
