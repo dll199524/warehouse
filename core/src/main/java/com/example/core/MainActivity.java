@@ -8,6 +8,9 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    static {
+        System.loadLibrary("main");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

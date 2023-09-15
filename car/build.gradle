@@ -1,3 +1,6 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+}
 if (isRelease) {
     apply plugin: 'com.android.library'
 } else {
@@ -35,8 +38,9 @@ android {
 
 
 dependencies {
-
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'androidx.core:core-ktx:+'
     app_dependences.each {k,v -> implementation v}
 
     //lottie

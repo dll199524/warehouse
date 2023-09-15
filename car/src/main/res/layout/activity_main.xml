@@ -16,4 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/dynamic_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_fileName="HamburgerArrow.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
