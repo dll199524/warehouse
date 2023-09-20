@@ -1,7 +1,11 @@
 package com.example.performance;
 
+import android.app.ActivityManager;
 import android.app.Application;
+import android.app.ApplicationExitInfo;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Looper;
 import android.os.MessageQueue;
 import android.os.StrictMode;
@@ -15,6 +19,8 @@ import com.example.performance.startup.task.Task2;
 import com.example.performance.startup.task.Task3;
 import com.example.performance.startup.task.Task4;
 import com.example.performance.startup.task.Task5;
+
+import java.util.List;
 
 
 public class BaseApplication extends Application {
@@ -75,6 +81,17 @@ public class BaseApplication extends Application {
         ExceptionCrashHandler.getInstance().init(this);
         LogPrinter logPrinter = new LogPrinter(this);
         Looper.getMainLooper().setMessageLogging(logPrinter);
+
+        Intent in = new Intent(this, CheckExitService.class);
+        //应用程序异常退出检测
+        getApplicationContext().startService(in);
+        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            List<ApplicationExitInfo> historicalProcessExitReasons
+                    = am.getHistoricalProcessExitReasons(getApplicationContext().getPackageName(), 0, 1);
+
+        }
+
 
     }
 
