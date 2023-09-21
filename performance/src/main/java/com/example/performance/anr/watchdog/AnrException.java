@@ -5,8 +5,6 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
