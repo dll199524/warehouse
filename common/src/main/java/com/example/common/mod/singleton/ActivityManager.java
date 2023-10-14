@@ -1,4 +1,4 @@
-package com.example.common.mod;
+package com.example.common.mod.singleton;
 
 import android.app.Activity;
 
